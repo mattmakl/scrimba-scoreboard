@@ -14,26 +14,18 @@ const guestScore = document.querySelector(".guest--score")
 
 // timer //
 
-function setClock(secs) {
-    clearInterval(cdInterval)
-    let minutes = Math.floor(secs/60)
-    let seconds = secs % 60
-        document.querySelector("#clock--time").textContent = minutes.toString().padStart(2, '0') + 
-        ':' + seconds.toString().padStart(2, '0')
-}
-
 function displayTime(secs) {
     let minutes = Math.floor(secs/60)
     let seconds = secs % 60
-    document.querySelector("#clock--time").textContent = minutes.toString().padStart(2, '0') + 
-        ':' + seconds.toString().padStart(2, '0')
+    document.querySelector("#clock--time").textContent = `${minutes.toString().padStart(2, '0')}:
+        ${seconds.toString().padStart(2, '0')}`
 }
 
 function countdown () {
     cdInterval = setInterval(() => {
         if(currentTime === 0){
             clearInterval(cdInterval)
-            setClock(0)
+            displayTime(0)
         } else {
             currentTime -= 1,
             displayTime(currentTime)
@@ -43,14 +35,12 @@ function countdown () {
 
 function addTime(time) {
     currentTime += time
-    setClock(currentTime)
-    if(isClockRunning){countdown(currentTime)}
+    displayTime(currentTime)
 }
 
 function subtractTime(time) {
     currentTime = currentTime < time? 0: currentTime -= time
-    setClock(currentTime)
-    if(!isClockRunning){setClock(currentTime)}
+    displayTime(currentTime)
 }
 
 // score //
@@ -125,7 +115,7 @@ function formatDisplay(isTextDisplayed){ // for clarity of scrolling text: score
 // initialise app //
 
 showScore();
-setClock(currentTime);
+displayTime(currentTime);
 
 // event listeners //
 
@@ -167,7 +157,8 @@ document.querySelector("#start-clock").addEventListener("click", () => {
 
 document.querySelector("#pause-clock").addEventListener("click", () => {
     isClockRunning = false
-    setClock(currentTime)
+    clearInterval(cdInterval)
+    displayTime(currentTime)
 });
 
 [...document.querySelectorAll('.add-time')].forEach(button => button.addEventListener('click', e => {
