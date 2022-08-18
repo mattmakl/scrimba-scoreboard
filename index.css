@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+    display:flex;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family:"CustomFont";
+    src: url("./CursedTimer.woff") format("woff");
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width:70%;
+    padding:1em;
+    max-width: 800px;
+    border-radius: 10px;
+    background-color: #1B244A;  
+}
+
+button {
+   border:none;
+}
+/* score display */
+
+.scores {
+    display:flex;
+    margin: auto;
+    width:80%;
+    justify-content: space-evenly;
+    margin-top:1em;
+}
+
+.guest--container,
+.home--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.scores h3 {
+    font-family: 'Verdana';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 36px;
+    text-align: center;
+    color: #EEEEEE;
+    margin-top: 0; 
+}
+
+.guest--score,
+.home--score {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    color:red;
+    font-family: "CustomFont";
+    font-size: 8em;
+    border:solid black;
+    border-radius:5px;
+    width:270px;
+    min-height:150px;
+}
+
+.text .home--score,
+.text .guest--score {
+    width:255px;
+    padding-left:15px;
+    padding-right:-15px;
+    justify-content: left;
+}
+
+/* clock */
+
+.clock--container {
+    margin:1em auto 0 ;
+    background:black;
+    font-size:3rem;
+    color:red;
+    font-family:"CustomFont";
+    padding:.1em .2em 0em;
+    border-radius: 5px;
+    border:solid black;
+    box-shadow: black 0px 0px 10px;
+    margin-bottom:.75em;
+}
+
+
+/* options - all */
+
+.options {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    margin:.25em auto;
+    padding:.25em;
+    font-size:.9rem;
+    border-radius: 5px;
+    background:rgb(255, 255, 255);
+}
+
+.options p{
+    margin:0; 
+    text-align: center;
+}
+
+input[type="text"] {
+    width:95%;
+    margin: 0 auto;
+    padding:.25em;
+    border-radius: 5px;
+    border:none;
+    border:solid 1px #9CA3AF;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+button {
+    background-color: white;
+    border:solid 1px #9CA3AF;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+button:hover {
+    background-color: #6f7179;
+    color:white;
+}
+
+.home-options--container,
+.guest-options--container,
+.display-options--container,
+.clock-options--container {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 1) 0px 1px 3px -1px;
+    border:solid rgb(185, 185, 185) 1px;
+    background-color: #d6e3fd;
+    height:90px;
+    margin:5px;
+    padding:5px;
+    border-radius: 5px;
+}
+
+/* options - home & guest scores */
+
+.home-options--container > input,
+.guest-options--container > input {
+    margin: auto;
+    width:95%;
+}
+
+.buttons {
+    height:60%;
+    display:flex;
+    margin:auto 0;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+
+.guest--button,
+.home--button {
+    padding:.5em;
+    border-radius: 5px;
+}
+
+.score--add {
+    display:flex;
+    justify-content: space-around;
+    font-size: 1em;
+}
+
+.score--sub {
+    display:flex;
+    justify-content: space-around;
+    margin-top: .25em;
+}
+
+.score--add > button,
+.score--sub > button {
+    padding:.3em 1em;
+    font-size:.9em;
+}
+
+.home .home--score,
+.guest .guest--score {
+    border:solid green;
+    box-shadow: green 0px 0px 25px;
+}
+
+.tie .home--score,
+.tie .guest--score {
+    border:solid goldenrod;
+    box-shadow: goldenrod 0px 0px 25px;
+}
+
+.guest .home--score,
+.home .guest--score {
+    border:solid red;
+    box-shadow: red 0px 0px 25px;
+}
+
+/* options - text display */
+
+.display-options--container {
+    min-width:22%;
+}
+
+.display-options--container > * {
+    display:flex;
+    align-items:space-between;
+}
+.display-options--container p,
+.display-options--container label {
+    font-size:.9rem;
+}
+
+#show-score,
+#show-text {
+    padding:.25em .5em;
+    border-radius: 5px;
+    margin:0 auto;
+}
+
+#show-score {
+    margin-right:auto;
+}
+
+#show-text {
+    margin-left:auto;
+}
+
+#user-text{
+    margin:5px auto;
+}
+
+.speed-selection {
+    display: flex;
+    font-size: .8em;
+    align-items: center;
+}
+
+.speed-selection label {
+    margin:auto 2px auto 5px;
+}
+
+/* options - clock options */
+
+.clock-options--container > div {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#start-clock,
+#pause-clock {
+    padding:.25em .5em;
+    border-radius: 5px;
+    margin:auto;
+    width:45%;
+}
+
+.add-time,
+.sub-time {
+    display:flex;
+    justify-content:center;
+    padding:.3em 1em;
+    font-size:.9em;
+    border-radius: 5px;
+    width:22%;
+}
+
